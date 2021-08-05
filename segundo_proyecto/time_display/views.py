@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+import time
 
 # Create your views here.
 def root(request):
@@ -6,6 +7,7 @@ def root(request):
 
 def index(request):
     context = {
-        "time": strftime("%Y-%m-%d %H:%M %p", gmtime())
+        "date": time.strftime("%Y-%m-%d"),
+        "time": time.strftime("%H:%M %p")
     }
     return render(request,'index.html', context)
